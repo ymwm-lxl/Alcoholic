@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical">
+
+    <com.hjq.bar.TitleBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <com.example.widget.layout.SettingBar
+        android:id="@+id/groupHome_bar_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:bar_rightIcon="@drawable/arrows_right_ic">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dp_margin">
+
+            <ImageView
+                android:id="@+id/groupHome_iv_headImg"
+                android:layout_width="@dimen/dp_70"
+                android:layout_height="@dimen/dp_70"
+                android:src="@drawable/icon"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <com.example.widget.view.SmartTextView
+                android:id="@+id/groupHome_tv_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="@string/app_name"
+                android:textColor="@color/textColor"
+                android:textSize="@dimen/sp_20"
+                android:textStyle="bold"
+                android:layout_marginStart="@dimen/dp_10"
+                android:layout_marginTop="@dimen/dp_4"
+                app:layout_constraintTop_toTopOf="@id/groupHome_iv_headImg"
+                app:layout_constraintStart_toEndOf="@id/groupHome_iv_headImg"/>
+
+            <com.example.widget.view.SmartTextView
+                android:id="@+id/groupHome_tv_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="id：1111"
+                android:textSize="@dimen/sp_16"
+                android:textColor="@color/textColor"
+                android:layout_marginTop="@dimen/dp_4"
+                app:layout_constraintStart_toStartOf="@id/groupHome_tv_name"
+                app:layout_constraintTop_toBottomOf="@id/groupHome_tv_name"/>
+
+            <com.example.widget.view.SmartTextView
+                android:id="@+id/groupHome_tv_intro"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                tools:text="牧童遥指杏花村"
+                android:textSize="@dimen/sp_16"
+                android:textColor="@color/textColor"
+                android:layout_marginTop="@dimen/dp_4"
+                app:layout_constraintStart_toStartOf="@id/groupHome_tv_name"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/groupHome_tv_id"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.example.widget.layout.SettingBar>
+
+    <com.example.widget.layout.SettingBar
+        android:id="@+id/groupHome_bar_sync"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:bar_leftText="同步群信息"
+        app:bar_leftColor="@color/textColor"
+        app:bar_rightIcon="@mipmap/ic_run_sync"/>
+
+    <com.example.widget.layout.SettingBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_margin"
+        android:background="@color/white">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="@dimen/dp_margin"
+            android:paddingEnd="@dimen/dp_margin">
+
+            <TextView
+                android:id="@+id/groupHome_layout_memberSize"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="群成员（0/0）"
+                android:textSize="@dimen/sp_16"
+                android:textColor="@color/textColor"
+                android:layout_marginTop="@dimen/dp_margin"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <LinearLayout
+                    android:id="@+id/groupHome_layout_addMember"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="@dimen/dp_margin">
+
+                    <ImageView
+                        android:layout_width="@dimen/dp_50"
+                        android:layout_height="@dimen/dp_50"
+                        android:padding="@dimen/dp_4"
+                        android:src="@mipmap/ic_add_circle"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="添加成员"
+                        android:textColor="@color/textColor"
+                        android:textSize="@dimen/sp_16"
+                        android:layout_marginTop="@dimen/dp_8"/>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="@dimen/line_size"
+                    android:layout_height="match_parent"
+                    android:background="@color/line_color"
+                    android:layout_marginVertical="@dimen/dp_20" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/groupHome_rv_members"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    tools:layout_height="@dimen/dp_70"/>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </com.example.widget.layout.SettingBar>
+
+    <com.example.widget.layout.SettingBar
+        android:id="@+id/groupHome_bar_announcement"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:bar_rightIcon="@drawable/arrows_right_ic">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/dp_margin">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="群公告"
+                android:textSize="@dimen/sp_16"
+                android:textColor="@color/textColor"/>
+
+            <TextView
+                android:id="@+id/groupHome_tv_announcement"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="牧童遥指杏花村"
+                android:textSize="@dimen/sp_14"
+                android:textColor="@color/textColor"
+                android:layout_marginTop="@dimen/dp_6"/>
+
+        </LinearLayout>
+
+    </com.example.widget.layout.SettingBar>
+
+
+    <com.example.widget.layout.SettingBar
+        android:id="@+id/groupHome_bar_openChat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_margin">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="发消息"
+            android:textSize="@dimen/sp_18"
+            android:textColor="@color/blue_textColor"
+            android:layout_gravity="center"/>
+
+    </com.example.widget.layout.SettingBar>
+
+
+</LinearLayout>

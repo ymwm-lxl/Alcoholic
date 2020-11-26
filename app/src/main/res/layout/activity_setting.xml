@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical">
+
+    <com.hjq.bar.TitleBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:title="设置"/>
+
+    <com.example.widget.layout.SettingBar
+        android:id="@+id/setting_bar_account"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_margin"
+        app:bar_leftText="账户信息"
+        app:bar_rightText="xxxx"/>
+
+    <com.example.widget.layout.SettingBar
+        android:id="@+id/setting_bar_contactsSync"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:bar_leftText="同步联系人"
+        app:bar_rightIcon="@drawable/arrows_right_ic"/>
+
+
+    <com.example.widget.layout.SettingBar
+        android:id="@+id/setting_bar_setKey"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_margin"
+        app:bar_leftText="设置密钥"
+        app:bar_rightIcon="@drawable/arrows_right_ic"/>
+
+    <com.example.widget.layout.SettingBar
+        android:id="@+id/setting_bar_help"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:bar_leftText="使用帮助"
+        app:bar_rightIcon="@drawable/arrows_right_ic"/>
+
+    <com.example.widget.layout.SettingBar
+        android:id="@+id/setting_bar_checkUp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_margin"
+        app:bar_leftText="检查更新">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|center_vertical"
+            android:layout_marginEnd="30dp"
+            android:background="@drawable/setting_update_bg"
+            android:paddingHorizontal="6dp"
+            android:paddingBottom="3dp"
+            android:text="new"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            tools:ignore="HardcodedText" />
+
+    </com.example.widget.layout.SettingBar>
+
+
+    <View
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="0dp"/>
+
+    <TextView
+        android:id="@+id/setting_btn_exitLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_btn_exit_login"
+        android:text="退出登录"
+        android:textColor="@color/white"
+        android:textSize="@dimen/sp_18"
+        android:padding="@dimen/dp_12"
+        android:gravity="center"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="@dimen/dp_34"
+        android:layout_marginStart="@dimen/dp_34"
+        android:layout_marginEnd="@dimen/dp_34"/>
+
+
+</LinearLayout>

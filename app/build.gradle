@@ -1,0 +1,110 @@
+apply plugin: 'com.android.application'
+apply from: '../config.gradle'
+apply plugin: 'org.greenrobot.greendao'
+
+android {
+
+    defaultConfig {
+        applicationId "com.example.alcoholic"
+
+        // 仅保留两种架构的 so 库，根据 Bugly 统计得出
+        ndk {
+            // armeabi：万金油架构平台（占用率：0%）
+            // armeabi-v7a：曾经主流的架构平台（占用率：10%）
+            // arm64-v8a：目前主流架构平台（占用率：90%）
+            abiFilters 'armeabi-v7a', 'arm64-v8a'
+        }
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+
+    //greendao配置
+    greendao {
+        //版本号，升级时可配置
+        schemaVersion 1
+        daoPackage 'com.example.alcoholic.gen'
+        targetGenDir 'src/main/java'
+    }
+
+
+    applicationVariants.all { variant ->
+
+        // Apk 输出文件名配置
+        variant.outputs.all { output ->
+            outputFileName = rootProject.getName() + '_v' + variant.versionName + '_' + variant.buildType.name
+            if (variant.buildType.name == buildTypes.release.getName()) {
+                outputFileName += '_' + new Date().format('MMdd')
+            }
+            outputFileName += '.apk'
+        }
+    }
+}
+
+dependencies {
+    // 基类库
+    implementation project(':base')
+    // 自定义 View
+    implementation project(':widget')
+    // 吐司框架：https://github.com/getActivity/ToastUtils
+    implementation 'com.hjq:toast:8.6'
+    // 网络请求框架：https://github.com/getActivity/EasyHttp
+    implementation 'com.hjq:http:6.9'
+    // 权限请求框架：https://github.com/getActivity/XXPermissions
+    implementation 'com.hjq:xxpermissions:6.5'
+    // 标题栏框架：https://github.com/getActivity/TitleBar
+    implementation 'com.hjq:titlebar:6.5'
+    // 日志调试：https://github.com/getActivity/Logcat
+    debugImplementation 'com.hjq:logcat:8.2'
+    //日志打印
+    implementation 'com.orhanobut:logger:2.2.0'
+    // OkHttp 框架：https://github.com/square/okhttp
+    implementation 'com.squareup.okhttp3:okhttp:4.2.2'
+    // JSON 解析框架：https://github.com/google/gson
+    implementation 'com.google.code.gson:gson:2.8.6'
+    // 状态栏沉浸：https://github.com/gyf-dev/ImmersionBar
+    implementation 'com.gyf.immersionbar:immersionbar:3.0.0'
+    // 图片加载框架：https://github.com/bumptech/glide
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
+    //BRVAH 适配器
+    implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.6'
+    //im
+    implementation 'com.google.android.gms:play-services-base:11.4.0'
+    implementation 'com.google.firebase:firebase-messaging:11.4.0'
+    api 'com.hyphenate:hyphenate-sdk:3.7.2'
+    //eventBus
+    implementation 'org.greenrobot:eventbus:3.2.0'
+    //今日头条适配 https://github.com/taowuhua/AndroidAutoSize/blob/master/README-zh.md
+    implementation 'me.jessyan:autosize:1.1.2'
+    //MMKV https://github.com/Tencent/MMKV
+    implementation 'com.tencent:mmkv-static:1.2.5'
+    //greenDao  https://github.com/greenrobot/greenDAO
+    implementation 'org.greenrobot:greendao:3.3.0'
+    //rxjava https://github.com/ReactiveX/RxJava
+    //rxandroid https://github.com/ReactiveX/RxAndroid
+    implementation "io.reactivex.rxjava3:rxjava:3.0.7"
+    implementation 'io.reactivex.rxjava3:rxandroid:3.0.0'
+    // AOP 插件库：https://mvnrepository.com/artifact/org.aspectj/aspectjrt
+    implementation 'org.aspectj:aspectjrt:1.9.5'
+    // 手势 ImageView：https://github.com/chrisbanes/PhotoView
+    implementation 'com.github.chrisbanes:PhotoView:2.3.0'
+    // ViewPager 指示器：https://github.com/romandanylyk/PageIndicatorView
+    implementation 'com.romandanylyk:pageindicatorview:1.0.3'
+    //luban https://github.com/Curzibn/Luban
+    implementation 'top.zibin:Luban:1.1.8'
+    //smartrefresh  https://github.com/scwang90/SmartRefreshLayout
+    implementation 'androidx.appcompat:appcompat:1.0.0'
+    implementation  'com.scwang.smart:refresh-layout-kernel:2.0.1'
+    implementation  'com.scwang.smart:refresh-header-classics:2.0.1'
+    implementation  'com.scwang.smart:refresh-footer-classics:2.0.1'
+
+
+}

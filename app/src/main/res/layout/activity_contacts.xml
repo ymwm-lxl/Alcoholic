@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical">
+
+    <com.hjq.bar.TitleBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:title="通讯录"
+        app:rightIcon="@mipmap/ic_run_sync"/>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- 添加好友 -->
+            <LinearLayout
+                android:id="@+id/contacts_layout_addFriend"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:paddingStart="@dimen/dp_margin"
+                android:paddingEnd="@dimen/dp_margin"
+                android:paddingTop="@dimen/dp_12"
+                android:paddingBottom="@dimen/dp_12">
+
+                <ImageView
+                    android:layout_width="@dimen/dp_50"
+                    android:layout_height="@dimen/dp_50"
+                    android:padding="@dimen/dp_4"
+                    android:src="@mipmap/ic_add_friend"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="添加好友"
+                    android:textSize="@dimen/sp_18"
+                    android:textColor="@color/textColor"
+                    android:textStyle="bold"
+                    android:layout_marginStart="@dimen/dp_12"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/line_size"
+                android:background="@color/line_color"
+                android:layout_marginStart="@dimen/dp_margin"
+                android:layout_marginEnd="@dimen/dp_margin"/>
+
+            <!-- 群组 -->
+            <LinearLayout
+                android:id="@+id/contacts_layout_group"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:paddingStart="@dimen/dp_margin"
+                android:paddingEnd="@dimen/dp_margin"
+                android:paddingTop="@dimen/dp_12"
+                android:paddingBottom="@dimen/dp_12">
+
+                <ImageView
+                    android:layout_width="@dimen/dp_50"
+                    android:layout_height="@dimen/dp_50"
+                    android:padding="@dimen/dp_4"
+                    android:src="@mipmap/ic_group"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="群组"
+                    android:textSize="@dimen/sp_18"
+                    android:textColor="@color/textColor"
+                    android:textStyle="bold"
+                    android:layout_marginStart="@dimen/dp_12"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/line_size"
+                android:background="@color/line_color"
+                android:layout_marginStart="@dimen/dp_margin"
+                android:layout_marginEnd="@dimen/dp_margin"/>
+
+            <!-- 黑名单 -->
+            <LinearLayout
+                android:id="@+id/contacts_layout_black"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:paddingStart="@dimen/dp_margin"
+                android:paddingEnd="@dimen/dp_margin"
+                android:paddingTop="@dimen/dp_12"
+                android:paddingBottom="@dimen/dp_12"
+                android:visibility="gone"
+                tools:visibility="visible">
+
+                <ImageView
+                    android:layout_width="@dimen/dp_50"
+                    android:layout_height="@dimen/dp_50"
+                    android:padding="@dimen/dp_4"
+                    android:src="@mipmap/ic_black_list"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="黑名单"
+                    android:textSize="@dimen/sp_18"
+                    android:textColor="@color/textColor"
+                    android:textStyle="bold"
+                    android:layout_marginStart="@dimen/dp_12"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="我的联系人"
+                android:textColor="@color/textColor"
+                android:textSize="@dimen/sp_14"
+                android:paddingStart="@dimen/dp_margin"
+                android:paddingTop="@dimen/dp_6"
+                android:paddingBottom="@dimen/dp_6"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/contacts_rv_contacts"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:overScrollMode="never"/>
+
+        </LinearLayout>
+
+
+    </androidx.core.widget.NestedScrollView>
+
+
+</LinearLayout>

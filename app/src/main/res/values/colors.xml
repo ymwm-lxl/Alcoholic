@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">@color/white</color>
+    <color name="colorPrimaryDark">@color/black</color>
+    <color name="colorAccent">#FFCB57</color>
+    <color name="windowBackground">#F4F4F4</color>
+    <color name="textColor">#333333</color>
+    <color name="textColorHint">#757575</color>
+
+
+    <color name="windowBackground_EE">#EEEEEE</color>
+
+    <color name="line_color">#CCCCCC</color>
+
+    <!-- 图标颜色 -->
+    <color name="colorIcon">#7C7C7C</color>
+
+    <color name="red_textColor">#F13D20</color>
+    <color name="blue_textColor">#1592E6</color>
+
+
+
+
+
+</resources>

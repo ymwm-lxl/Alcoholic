@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal"
+    android:paddingStart="@dimen/dp_margin"
+    android:paddingEnd="@dimen/dp_margin"
+    android:paddingTop="@dimen/dp_margin"
+    android:paddingBottom="@dimen/dp_margin">
+
+
+    <!-- 头像 -->
+    <ImageView
+        android:id="@+id/item_chatList_iv_head"
+        android:layout_width="@dimen/dp_50"
+        android:layout_height="@dimen/dp_50"
+        tools:background="#aaa"/>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginStart="@dimen/dp_10"
+        android:paddingTop="@dimen/dp_1"
+        android:paddingBottom="@dimen/dp_1">
+
+        <!-- 昵称 -->
+        <TextView
+            android:id="@+id/item_chatList_tv_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="昵称"
+            android:textSize="@dimen/sp_18"
+            android:textColor="@color/textColor"
+            android:maxLines="1"
+            android:ellipsize="end"/>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+        <!-- 消息内容 -->
+        <TextView
+            android:id="@+id/item_chatList_tv_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="消息内容"
+            android:textSize="@dimen/sp_16"
+            android:textColor="@color/textColorHint"
+            android:maxLines="1"
+            android:ellipsize="end"/>
+
+    </LinearLayout>
+
+    <!--  -->
+    <!--  -->
+    <!--  -->
+
+</LinearLayout>

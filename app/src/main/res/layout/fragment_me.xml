@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+
+    <com.example.widget.layout.RatioFrameLayout
+        android:id="@+id/f_me_layout_user"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:sizeRatio="2">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@mipmap/bg_chat_0"
+            android:scaleType="centerCrop"/>
+
+        <LinearLayout
+            android:id="@+id/f_me_layout_userInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            android:gravity="center">
+            <ImageView
+                android:id="@+id/f_me_iv_head"
+                android:layout_width="@dimen/dp_100"
+                android:layout_height="@dimen/dp_100"
+                android:src="@mipmap/de_head_1"/>
+
+            <com.example.widget.view.SmartTextView
+                android:id="@+id/f_me_tv_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="昵称"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp_18"
+                android:layout_marginTop="@dimen/dp_12"/>
+        </LinearLayout>
+
+    </com.example.widget.layout.RatioFrameLayout>
+
+    <com.example.widget.layout.SettingBar
+        android:id="@+id/f_me_bar_contacts"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:bar_leftText="通讯录"/>
+
+    <com.example.widget.layout.SettingBar
+        android:id="@+id/f_me_bar_setting"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:bar_leftText="设置"
+        android:layout_marginTop="@dimen/dp_margin"/>
+
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+
+    <ImageView
+        android:layout_width="@dimen/dp_30"
+        android:layout_height="@dimen/dp_30"
+        android:src="@drawable/icon"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="@dimen/dp_30"/>
+
+</LinearLayout>
