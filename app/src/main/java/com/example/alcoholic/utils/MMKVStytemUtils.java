@@ -21,6 +21,8 @@ public class MMKVStytemUtils {
      */
     private static final String STYTEM_AES_KEY = "stytemAesKey";
     private static final String STYTEM_ALARM_TIME = "stytemAlarmTime";
+    /* 是否展示过使用提示 */
+    private static final String STYTEM_SHOW_TIPS_FLAG = "stytemShowTipsFlag";
 
 
     public MMKVStytemUtils() {
@@ -81,6 +83,20 @@ public class MMKVStytemUtils {
         return false;
     }
 
+
+    /**
+     * 关闭显示使用提示旗帜（已经提示过，不再提示）
+     */
+    public void closeShowTipsFlag(){
+        mKv.encode(STYTEM_SHOW_TIPS_FLAG,true);
+    }
+
+    /**
+     * 获取是否显示过使用提示
+     */
+    public boolean isShowTipsFlag(){
+        return mKv.decodeBool(STYTEM_SHOW_TIPS_FLAG,false);
+    }
 
 
 }

@@ -3,8 +3,11 @@ package com.example.alcoholic.ui.acitivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.renderscript.RenderScript;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
@@ -44,11 +47,12 @@ import static com.example.alcoholic.constant.JumpDataContants.JUMP_DATA_USER_ACC
  * Description:
  * on 2020/11/13.
  */
-public class ChatActivity extends ImActivity {
+public class ChatActivity extends ImActivity implements TextWatcher {
 
     private RecyclerView mRvMsg;
     private EditText mEtInput;
     private TextView mBtnSend;
+    private ImageView mBtnSendImg;
 
     private MsgListAdapter mMsgAdapter;
     private LinearLayoutManager mLayoutManager;
@@ -70,15 +74,16 @@ public class ChatActivity extends ImActivity {
         mRvMsg = findViewById(R.id.chat_rv_msgList);
         mEtInput = findViewById(R.id.chat_et_input);
         mBtnSend = findViewById(R.id.chat_btn_send);
+        mBtnSendImg = findViewById(R.id.chat_btn_senImg);
 
-        setOnClickListener(mBtnSend);
+        setOnClickListener(mBtnSend,mBtnSendImg);
 
 
         initList();
 
         //输入框按钮监听
         InputTextHelper.with(this).setMain(mBtnSend).addView(mEtInput).build();
-
+        mEtInput.addTextChangedListener(this);
     }
 
     @Override
@@ -169,6 +174,10 @@ public class ChatActivity extends ImActivity {
                 }
                 sendMsg();
                 break;
+            case R.id.chat_btn_senImg:
+                //发送图片
+
+                break;
         }
     }
 
@@ -180,6 +189,13 @@ public class ChatActivity extends ImActivity {
 
         mEtInput.setText("");
         scrollBottom();
+    }
+
+    /**
+     * 发送图片
+     */
+    private void sendImg(){
+
     }
 
     /**
@@ -256,6 +272,38 @@ public class ChatActivity extends ImActivity {
                 }
             }
         });
+
+    }
+
+    /**
+     * 输入框监听
+     */
+    @Override
+    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+    }
+
+    /**
+     * 输入框监听
+     */
+    @Override
+    public void onTextChanged(CharSequence s, int start, int before, int count) {
+//        if (s.length() == 0){
+//            //没内容
+//            mBtnSend.setVisibility(View.GONE);
+//            mBtnSendImg.setVisibility(View.VISIBLE);
+//        }else {
+//            //有内容
+//            mBtnSend.setVisibility(View.VISIBLE);
+//            mBtnSendImg.setVisibility(View.GONE);
+//        }
+    }
+
+    /**
+     * 输入框监听
+     */
+    @Override
+    public void afterTextChanged(Editable s) {
 
     }
 }

@@ -1,6 +1,7 @@
 package com.example.alcoholic.aop;
 
 import android.app.Activity;
+import android.util.Log;
 
 import com.example.alcoholic.R;
 import com.example.alcoholic.helper.ActivityStackManager;
@@ -28,7 +29,7 @@ public class PermissionsAspect {
     /**
      * 方法切入点
      */
-    @Pointcut("execution(@com.hjq.demo.aop.Permissions * *(..))")
+    @Pointcut("execution(@com.example.alcoholic.aop.Permissions * *(..))")
     public void method() {}
 
     /**

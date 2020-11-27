@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.example.alcoholic.R;
 import com.example.alcoholic.common.MyFragment;
+import com.example.alcoholic.constant.RandomConstant;
 import com.example.alcoholic.db.DbUserHelper;
 import com.example.alcoholic.http.glide.GlideApp;
 import com.example.alcoholic.ui.acitivity.HomeActivity;

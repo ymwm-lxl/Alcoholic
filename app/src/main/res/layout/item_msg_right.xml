@@ -53,8 +53,8 @@
 
         <ImageView
             android:id="@+id/item_msgRight_iv_head"
-            android:layout_width="@dimen/dp_44"
-            android:layout_height="@dimen/dp_44"
+            android:layout_width="@dimen/ic_head_middle"
+            android:layout_height="@dimen/ic_head_middle"
             tools:src="#aaa"
             android:layout_marginStart="@dimen/dp_10"/>
 

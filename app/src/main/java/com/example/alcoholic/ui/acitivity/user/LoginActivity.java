@@ -6,12 +6,14 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.alcoholic.R;
+import com.example.alcoholic.bean.MessageBean;
 import com.example.alcoholic.bean.UserInfoBean;
 import com.example.alcoholic.common.MyActivity;
 import com.example.alcoholic.db.DbUserHelper;
 import com.example.alcoholic.db.DbUserManager;
 import com.example.alcoholic.helper.InputTextHelper;
 import com.example.alcoholic.ui.acitivity.HomeActivity;
+import com.example.alcoholic.ui.dialog.MessageDialog;
 import com.example.alcoholic.utils.MMKVStytemUtils;
 import com.example.alcoholic.utils.MMKVUserUtils;
 import com.hyphenate.EMCallBack;
@@ -56,6 +58,9 @@ public class LoginActivity extends MyActivity {
                     }
                 })
                 .build();
+
+        //显示使用提示
+        showTips();
     }
 
     @Override
@@ -82,6 +87,25 @@ public class LoginActivity extends MyActivity {
 
     public String getEtPsd() {
         return mEtPsd.getText().toString().toLowerCase();
+    }
+
+
+    /**
+     * 显示使用提示
+     */
+    private void showTips(){
+        if (!MMKVStytemUtils.getInstance().isShowTipsFlag()){
+            //如果没有提示过，则提示一次
+            new MessageDialog.Builder(this)
+                    .setTitle(R.string.dialog_title_prompt)
+                    .setMessage("欢迎来到大呲花！\n" +
+                            "请务必阅读以下内容：\n" +
+                            "1、设置解密密钥（不设置将导致无法接收正确聊天消息）\n" +
+                            "   设置→解密密钥→输入 “2020”→提示成功\n" +
+                            "请莫要泄露该密钥")
+                    .show();
+        }
+
     }
 
     /**

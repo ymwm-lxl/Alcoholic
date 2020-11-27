@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical">
 
     <com.hjq.bar.TitleBar
@@ -30,35 +31,47 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:background="@color/windowBackground_EE"
+        android:gravity="center_vertical"
         android:paddingStart="@dimen/dp_margin"
         android:paddingEnd="@dimen/dp_margin"
-        android:paddingTop="@dimen/dp_8"
-        android:paddingBottom="@dimen/dp_10">
+        android:paddingTop="@dimen/dp_10"
+        android:paddingBottom="@dimen/dp_12">
 
         <EditText
             android:id="@+id/chat_et_input"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:hint="说点什么吧"
+            android:hint="说点什么吧……"
             android:textSize="@dimen/sp_18"
             android:textColor="@color/textColor"
             android:maxLines="5"
             android:background="@drawable/bg_et_chat_input"
-            android:padding="@dimen/dp_8"/>
+            android:layout_marginEnd="@dimen/dp_10"
+            android:paddingVertical="@dimen/dp_12"
+            android:paddingHorizontal="@dimen/dp_8"/>
 
         <TextView
             android:id="@+id/chat_btn_send"
-            android:layout_width="wrap_content"
+            android:layout_width="@dimen/dp_60"
             android:layout_height="match_parent"
             android:text="@string/chat_send_msg"
             android:textColor="@color/white"
             android:textSize="@dimen/sp_16"
             android:gravity="center"
+            tools:visibility="visible"
             android:background="@drawable/bg_btn_chat_send"
-            android:layout_marginStart="@dimen/dp_10"
-            android:paddingStart="@dimen/dp_14"
-            android:paddingEnd="@dimen/dp_14"/>
+            android:layout_marginVertical="@dimen/dp_4" />
+
+        <ImageView
+            android:id="@+id/chat_btn_senImg"
+            android:layout_width="@dimen/dp_60"
+            android:layout_height="match_parent"
+            android:src="@mipmap/ic_img_send"
+            android:visibility="gone"
+            tools:visibility="visible"
+            android:background="@drawable/bg_btn_chat_send_green"
+            android:layout_marginVertical="@dimen/dp_4"/>
 
     </LinearLayout>
 

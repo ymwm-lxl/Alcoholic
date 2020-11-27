@@ -9,12 +9,11 @@
     android:paddingTop="@dimen/dp_margin"
     android:paddingBottom="@dimen/dp_margin">
 
-
     <!-- 头像 -->
     <ImageView
         android:id="@+id/item_chatList_iv_head"
-        android:layout_width="@dimen/dp_50"
-        android:layout_height="@dimen/dp_50"
+        android:layout_width="@dimen/ic_head_middle"
+        android:layout_height="@dimen/ic_head_middle"
         tools:background="#aaa"/>
 
     <LinearLayout

@@ -27,7 +27,7 @@ public class CheckNetAspect {
     /**
      * 方法切入点
      */
-    @Pointcut("execution(@com.hjq.demo.aop.CheckNet * *(..))")
+    @Pointcut("execution(@com.example.alcoholic.aop.CheckNet * *(..))")
     public void method() {}
 
     /**

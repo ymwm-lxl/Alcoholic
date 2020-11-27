@@ -121,17 +121,23 @@ public class SettingActivity extends MyActivity {
         new InputDialog.Builder(this)
                 .setTitle("设置密钥")
                 .setHint("请输入解密密钥")
+                .setAutoDismiss(false)
                 .setListener(new InputDialog.OnListener() {
                     @Override
                     public void onConfirm(BaseDialog dialog, String content) {
                         int size = 4;
                         if (content.length() == size){
                             MMKVStytemUtils.getInstance().saveAesKey(content+content+content+content);
+                            dialog.dismiss();
                             toast("修改成功");
                         }else {
                             toast("修改失败，密钥需要是 "+size+" 位");
                         }
+                    }
 
+                    @Override
+                    public void onCancel(BaseDialog dialog) {
+                        dialog.dismiss();
                     }
                 })
                 .show();

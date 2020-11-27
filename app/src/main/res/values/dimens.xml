@@ -16,6 +16,11 @@
     <dimen name="dp_margin">15dp</dimen>
 
 
+    <dimen name="ic_head_large">100dp</dimen>
+    <dimen name="ic_head_middle">55dp</dimen>
+    <dimen name="ic_head_small">20dp</dimen>
+
+
     <dimen name="dp_1">1dp</dimen>
     <dimen name="dp_2">2dp</dimen>
     <dimen name="dp_3">3dp</dimen>
