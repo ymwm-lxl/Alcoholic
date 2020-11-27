@@ -6,7 +6,7 @@ android {
         minSdkVersion 24
         targetSdkVersion 29
         versionName '1.0'
-        versionCode 10
+        versionCode 1
     }
 
     // 支持 Java JDK 8

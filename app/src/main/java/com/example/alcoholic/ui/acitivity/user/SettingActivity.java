@@ -7,19 +7,31 @@ import com.example.alcoholic.R;
 import com.example.alcoholic.bean.UpVersionBean;
 import com.example.alcoholic.common.MyActivity;
 import com.example.alcoholic.helper.ActivityStackManager;
-import com.example.alcoholic.helper.CacheDataManager;
-import com.example.alcoholic.http.glide.GlideApp;
+import com.example.alcoholic.http.request.GithubUpLoadApi;
+import com.example.alcoholic.http.server.GithubServer;
+import com.example.alcoholic.other.AppConfig;
 import com.example.alcoholic.ui.dialog.InputDialog;
 import com.example.alcoholic.ui.dialog.MessageDialog;
 import com.example.alcoholic.ui.dialog.SyncContactsDialog;
+import com.example.alcoholic.ui.dialog.UpdateDialog;
 import com.example.alcoholic.utils.MMKVStytemUtils;
 import com.example.alcoholic.utils.MMKVUserUtils;
 import com.example.base.BaseDialog;
 import com.example.widget.layout.SettingBar;
 import com.google.gson.Gson;
+import com.hjq.http.EasyHttp;
+import com.hjq.http.listener.OnHttpListener;
 import com.hyphenate.chat.EMClient;
 import com.orhanobut.logger.Logger;
 import com.tencent.mmkv.MMKV;
+
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+
+import java.io.IOException;
+
+import okhttp3.Call;
 
 /**
  * Created by
@@ -130,15 +142,55 @@ public class SettingActivity extends MyActivity {
      * 检查更新
      */
     private void checkUp(){
-        UpVersionBean upVersionBean = new UpVersionBean();
+        EasyHttp.get(this)
+                .server(new GithubServer())
+                .api(new GithubUpLoadApi())
+                .request(new OnHttpListener<String>() {
+                    @Override
+                    public void onSucceed(String result) {
 
-        upVersionBean.setvName("1.0");
-        upVersionBean.setvCode(1);
-        upVersionBean.setMinMustUpCode(1);
-        upVersionBean.setvUpContent("更心新的版本");
-        upVersionBean.setvAPKDownUrl("www.www");
+                        Document document = Jsoup.parse(result);
+                        Element element = document.getElementsByClass("highlight").first();
+                        UpVersionBean upVersionBean = new Gson().fromJson(element.text(),UpVersionBean.class);
 
-        Logger.d(new Gson().toJson(upVersionBean));
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+
+                                int nowVCode = AppConfig.getVersionCode();
+                                if (nowVCode < upVersionBean.getvCode()){
+
+                                    new UpdateDialog.Builder(getActivity())
+                                            .setVersionName(upVersionBean.getvName())
+                                            .setUpdateLog(upVersionBean.getvUpContent())
+//                                            .setForceUpdate(nowVCode <= upVersionBean.getMinMustUpCode())
+                                            .setDownloadUrl(upVersionBean.getvAPKDownUrl())
+                                            .show();
+                                }else {
+                                    toast("当前已是最新版本");
+                                }
+
+                            }
+                        });
+
+                    }
+
+                    @Override
+                    public void onFail(Exception e) {
+
+                    }
+
+                    @Override
+                    public void onStart(Call call) {
+                        showDialog();
+                    }
+
+                    @Override
+                    public void onEnd(Call call) {
+                        hideDialog();
+                    }
+                });
+
 
     }
 
