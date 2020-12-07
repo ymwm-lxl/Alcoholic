@@ -6,11 +6,6 @@
     android:orientation="vertical"
     android:background="@color/white">
 
-    <com.hjq.bar.TitleBar
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:title="@string/home_nav_index"
-        app:backButton="false"/>
 
 
     <ImageView

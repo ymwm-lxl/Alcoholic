@@ -5,22 +5,26 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
-    <com.hjq.bar.TitleBar
+    <com.flyco.tablayout.SlidingTabLayout
+        android:id="@+id/f_find_tablayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:title="@string/home_nav_found"
-        app:backButton="false"/>
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/white"
+        app:tl_textSelectColor="@color/textColor"
+        app:tl_textUnselectColor="@color/textColorHint"
+        app:tl_textsize="@dimen/sp_18"
+        app:tl_indicator_color="@color/textColor"
+        app:tl_textBold="SELECT" />
 
-    <com.scwang.smart.refresh.layout.SmartRefreshLayout
-        android:id="@+id/f_find_refrsh_data"
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/line_size"
+        android:background="@color/line_color"/>
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/f_find_viewpager"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1">
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/f_find_rv_photo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="@dimen/dp_margin"/>
-    </com.scwang.smart.refresh.layout.SmartRefreshLayout>
+        android:layout_weight="1"/>
 
 </LinearLayout>
